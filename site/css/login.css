@@ -1,0 +1,173 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#0f1117;
+    color:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+}
+
+.card{
+
+    width:420px;
+    max-width:95%;
+
+    background:#1a1f2d;
+
+    border:1px solid #2d3448;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    box-shadow:0 0 30px rgba(0,0,0,.4);
+
+}
+
+h1{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#a8b1c5;
+    margin-bottom:30px;
+}
+
+.tabs{
+    display:flex;
+    margin-bottom:20px;
+}
+
+.tabs button{
+
+    flex:1;
+
+    padding:12px;
+
+    background:#151924;
+
+    color:white;
+
+    border:none;
+
+    cursor:pointer;
+
+}
+
+.tabs button.active{
+    background:#3b82f6;
+}
+
+input{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:15px;
+
+    background:#111521;
+
+    border:1px solid #30384d;
+
+    color:white;
+
+    border-radius:10px;
+
+}
+
+.passwordRow{
+
+    display:flex;
+    gap:10px;
+
+}
+
+.passwordRow input{
+    flex:1;
+}
+
+.passwordRow button{
+
+    width:60px;
+
+    border:none;
+
+    background:#30384d;
+
+    color:white;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+.options{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:20px;
+
+    font-size:14px;
+
+}
+
+.options a{
+    color:#6ab7ff;
+}
+
+.mainButton{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#3b82f6;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+.mainButton:hover{
+
+    background:#2563eb;
+
+}
+
+.message{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    color:#7ce38b;
+
+}
+
+.error{
+
+    color:#ff8080;
+
+}
