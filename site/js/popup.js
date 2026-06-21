@@ -1,50 +1,52 @@
-import { supabase } from "./supabase.js";
+import { isLoggedIn } from "./session.js";
 
-const {
-    data:{session}
-}=await supabase.auth.getSession();
+(async()=>{
 
-if(session) return;
+    if(await isLoggedIn()) return;
 
-if(sessionStorage.getItem("guestPopup")) return;
+    if(sessionStorage.getItem("nebulaGuestPopup")) return;
 
-sessionStorage.setItem("guestPopup","1");
+    sessionStorage.setItem("nebulaGuestPopup","shown");
 
-document.body.insertAdjacentHTML("beforeend",`
+    document.body.insertAdjacentHTML("beforeend",`
 
 <div id="guestPopup">
 
 <div class="popup">
 
-<h2>Welcome!</h2>
+<h2>Welcome to Nebula!</h2>
 
 <p>
 
-You're browsing as a guest.
+You're currently browsing as a guest.
+
+Create an account or login to unlock every feature.
 
 </p>
 
 <ul>
 
-<li>❌ Cloud Saves</li>
+<li>💎 Shard Shop Purchases</li>
 
-<li>❌ Shard Shop Purchases</li>
+<li>☁️ Cloud Saves</li>
 
-<li>❌ Profile</li>
+<li>👤 Personal Profile</li>
 
-<li>❌ Inventory</li>
+<li>🎒 Inventory</li>
+
+<li>⚙️ Saved Settings</li>
 
 </ul>
 
-<div class="buttons">
+<div class="popupButtons">
 
-<button id="loginNow">
+<button id="popupLogin">
 
 Login
 
 </button>
 
-<button id="continueGuest">
+<button id="popupContinue">
 
 Continue as Guest
 
@@ -58,14 +60,22 @@ Continue as Guest
 
 `);
 
-loginNow.onclick=()=>{
+    document
+    .getElementById("popupLogin")
+    .onclick=()=>{
 
-location.href="login.html";
+        location.href="login.html";
 
-}
+    };
 
-continueGuest.onclick=()=>{
+    document
+    .getElementById("popupContinue")
+    .onclick=()=>{
 
-guestPopup.remove();
+        document
+        .getElementById("guestPopup")
+        .remove();
 
-}
+    };
+
+})();
