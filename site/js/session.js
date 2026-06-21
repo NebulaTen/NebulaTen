@@ -1,13 +1,33 @@
 import { supabase } from "./supabase.js";
 
-const {
+export async function getSession() {
 
-    data: { session }
+    const {
+        data: { session },
+        error
+    } = await supabase.auth.getSession();
 
-} = await supabase.auth.getSession();
+    if (error) {
+        console.error(error);
+        return null;
+    }
 
-if(session){
+    return session;
 
-    console.log(session.user);
+}
+
+export async function isLoggedIn() {
+
+    const session = await getSession();
+
+    return session !== null;
+
+}
+
+export async function getUser() {
+
+    const session = await getSession();
+
+    return session ? session.user : null;
 
 }
