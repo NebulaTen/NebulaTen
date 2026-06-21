@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login • Nebula</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#0f1117;
+    color:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+}
+
+.card{
+
+    width:420px;
+    max-width:95%;
+
+    background:#1a1f2d;
+
+    border:1px solid #2d3448;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    box-shadow:0 0 30px rgba(0,0,0,.4);
+
+}
+
+h1{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#a8b1c5;
+    margin-bottom:30px;
+}
+
+.tabs{
+    display:flex;
+    margin-bottom:20px;
+}
+
+.tabs button{
+
+    flex:1;
+
+    padding:12px;
+
+    background:#151924;
+
+    color:white;
+
+    border:none;
+
+    cursor:pointer;
+
+}
+
+.tabs button.active{
+    background:#3b82f6;
+}
+
+input{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:15px;
+
+    background:#111521;
+
+    border:1px solid #30384d;
+
+    color:white;
+
+    border-radius:10px;
+
+}
+
+.passwordRow{
+
+    display:flex;
+    gap:10px;
+
+}
+
+.passwordRow input{
+    flex:1;
+}
+
+.passwordRow button{
+
+    width:60px;
+
+    border:none;
+
+    background:#30384d;
+
+    color:white;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+.options{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:20px;
+
+    font-size:14px;
+
+}
+
+.options a{
+    color:#6ab7ff;
+}
+
+.mainButton{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#3b82f6;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+.mainButton:hover{
+
+    background:#2563eb;
+
+}
+
+.message{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    color:#7ce38b;
+
+}
+
+.error{
+
+    color:#ff8080;
+
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<h1>Nebula</h1>
+
+<div class="subtitle">
+
+Sign in or create your account
+
+</div>
+
+<div class="tabs">
+
+<button id="loginTab" class="active">
+Login
+</button>
+
+<button id="signupTab">
+Sign Up
+</button>
+
+</div>
+
+<input
+id="email"
+type="email"
+placeholder="Email">
+
+<div class="passwordRow">
+
+<input
+id="password"
+type="password"
+placeholder="Password">
+
+<button id="togglePassword">
+👁
+</button>
+
+</div>
+
+<div id="confirmContainer" style="display:none;">
+
+<input
+id="confirmPassword"
+type="password"
+placeholder="Confirm Password">
+
+</div>
+
+<div class="options">
+
+<label>
+
+<input
+type="checkbox"
+id="remember"
+checked>
+
+Remember this device
+
+</label>
+
+<a href="#" id="forgotPassword">
+
+Forgot?
+
+</a>
+
+</div>
+
+<button
+class="mainButton"
+id="submitButton">
+
+Login
+
+</button>
+
+<div
+id="message"
+class="message">
+
+</div>
+
+</div>
+
+<script>
+
+let signup=false;
+
+const loginTab=document.getElementById("loginTab");
+const signupTab=document.getElementById("signupTab");
+
+loginTab.onclick=()=>{
+
+signup=false;
+
+loginTab.classList.add("active");
+signupTab.classList.remove("active");
+
+confirmContainer.style.display="none";
+
+submitButton.textContent="Login";
+
+}
+
+signupTab.onclick=()=>{
+
+signup=true;
+
+signupTab.classList.add("active");
+loginTab.classList.remove("active");
+
+confirmContainer.style.display="block";
+
+submitButton.textContent="Create Account";
+
+}
+
+togglePassword.onclick=()=>{
+
+password.type=
+password.type==="password"
+?
+"text"
+:
+"password";
+
+}
+
+submitButton.onclick=()=>{
+
+message.classList.remove("error");
+
+const email=email.value.trim();
+
+const pass=password.value;
+
+if(email===""){
+
+message.textContent="Enter your email.";
+
+message.classList.add("error");
+
+return;
+
+}
+
+if(pass.length<6){
+
+message.textContent="Password must be at least 6 characters.";
+
+message.classList.add("error");
+
+return;
+
+}
+
+if(signup){
+
+if(pass!==confirmPassword.value){
+
+message.textContent="Passwords do not match.";
+
+message.classList.add("error");
+
+return;
+
+}
+
+message.textContent=
+"Ready to create your account.";
+
+}else{
+
+message.textContent=
+"Ready to log you in.";
+
+}
+
+}
+
+forgotPassword.onclick=()=>{
+
+alert("Password reset will be added in Part 3.");
+
+}
+
+</script>
+
+</body>
+</html>
