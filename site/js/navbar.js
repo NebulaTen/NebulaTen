@@ -1,26 +1,28 @@
-import { supabase } from "./supabase.js";
+import { getUser } from "./session.js";
 
-const {
+const loginBtn = document.getElementById("loginBtn");
+const profileBtn = document.getElementById("profileBtn");
 
-data:{session}
+(async () => {
 
-}=await supabase.auth.getSession();
+    const user = await getUser();
 
-const loginBtn=document.getElementById("loginBtn");
-const profileBtn=document.getElementById("profileBtn");
+    if (user) {
 
-if(session){
+        loginBtn.style.display = "none";
 
-loginBtn.style.display="none";
+        profileBtn.style.display = "inline-flex";
 
-profileBtn.style.display="block";
+        profileBtn.textContent =
+            user.user_metadata?.username ||
+            user.email.split("@")[0];
 
-profileBtn.textContent=session.user.email;
+    } else {
 
-}else{
+        loginBtn.style.display = "inline-flex";
 
-loginBtn.style.display="block";
+        profileBtn.style.display = "none";
 
-profileBtn.style.display="none";
+    }
 
-}
+})();
