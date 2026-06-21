@@ -1,71 +1,137 @@
 #guestPopup{
 
-position:fixed;
+    position:fixed;
 
-inset:0;
+    inset:0;
 
-background:rgba(0,0,0,.7);
+    background:rgba(0,0,0,.72);
 
-display:flex;
+    backdrop-filter:blur(10px);
 
-justify-content:center;
+    display:flex;
 
-align-items:center;
+    justify-content:center;
 
-z-index:9999;
+    align-items:center;
+
+    z-index:99999;
+
+    animation:fadeIn .25s ease;
 
 }
 
 .popup{
 
-width:420px;
+    width:450px;
 
-max-width:95%;
+    max-width:95%;
 
-background:var(--card);
+    background:var(--card);
 
-border:1px solid var(--border);
+    border:1px solid var(--border);
 
-border-radius:var(--radius);
+    border-radius:20px;
 
-padding:30px;
+    box-shadow:var(--shadow);
 
-box-shadow:var(--shadow);
+    padding:30px;
 
 }
 
 .popup h2{
 
-color:var(--accent2);
+    color:var(--accent2);
 
-margin-bottom:15px;
-
-}
-
-.popup button{
-
-margin-top:20px;
-
-padding:12px 18px;
-
-border-radius:12px;
+    margin-bottom:15px;
 
 }
 
-#loginNow{
+.popup p{
 
-background:var(--accent);
+    color:var(--text2);
 
-color:white;
+    margin-bottom:20px;
+
+    line-height:1.7;
 
 }
 
-#continueGuest{
+.popup ul{
 
-background:var(--card2);
+    margin-left:20px;
 
-color:white;
+    margin-bottom:25px;
 
-margin-left:10px;
+    color:var(--text2);
+
+}
+
+.popup li{
+
+    margin-bottom:10px;
+
+}
+
+.popupButtons{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.popupButtons button{
+
+    flex:1;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+}
+
+#popupLogin{
+
+    background:var(--accent);
+
+    color:white;
+
+}
+
+#popupLogin:hover{
+
+    box-shadow:var(--shadow);
+
+}
+
+#popupContinue{
+
+    background:var(--card2);
+
+    color:white;
+
+}
+
+#popupContinue:hover{
+
+    border:1px solid var(--accent);
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
 
 }
