@@ -1,193 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Login • Nebula</title>
+<title>Login • NebulaTen</title>
+
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/main.css">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
-}
 
 body{
-    background:#0f1117;
-    color:white;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+min-height:100vh;
 
-    min-height:100vh;
-}
+display:flex;
 
-.card{
+justify-content:center;
 
-    width:420px;
-    max-width:95%;
+align-items:center;
 
-    background:#1a1f2d;
+padding:20px;
 
-    border:1px solid #2d3448;
-
-    border-radius:18px;
-
-    padding:35px;
-
-    box-shadow:0 0 30px rgba(0,0,0,.4);
+background:
+radial-gradient(circle at top right,
+rgba(168,85,247,.15),
+transparent 40%),
+var(--bg);
 
 }
 
-h1{
-    text-align:center;
-    margin-bottom:10px;
+.loginCard{
+
+width:500px;
+
+max-width:100%;
+
+background:var(--card);
+
+border:1px solid var(--border);
+
+border-radius:24px;
+
+padding:35px;
+
+box-shadow:var(--shadow);
+
+}
+
+.logo{
+
+text-align:center;
+
+font-size:38px;
+
+font-weight:bold;
+
+color:var(--accent2);
+
+margin-bottom:10px;
+
 }
 
 .subtitle{
-    text-align:center;
-    color:#a8b1c5;
-    margin-bottom:30px;
+
+text-align:center;
+
+color:var(--text2);
+
+margin-bottom:30px;
+
 }
 
 .tabs{
-    display:flex;
-    margin-bottom:20px;
+
+display:flex;
+
+gap:10px;
+
+margin-bottom:20px;
+
 }
 
 .tabs button{
 
-    flex:1;
+flex:1;
 
-    padding:12px;
+padding:14px;
 
-    background:#151924;
+border-radius:12px;
 
-    color:white;
+background:var(--card2);
 
-    border:none;
+color:white;
 
-    cursor:pointer;
+border:none;
+
+font-size:15px;
 
 }
 
 .tabs button.active{
-    background:#3b82f6;
+
+background:var(--accent);
+
 }
 
 input{
 
-    width:100%;
+width:100%;
 
-    padding:14px;
+padding:14px;
 
-    margin-bottom:15px;
+margin-bottom:15px;
 
-    background:#111521;
+background:var(--card2);
 
-    border:1px solid #30384d;
+border:1px solid var(--border);
 
-    color:white;
+border-radius:12px;
 
-    border-radius:10px;
+color:white;
 
 }
 
 .passwordRow{
 
-    display:flex;
-    gap:10px;
+display:flex;
+
+gap:10px;
 
 }
 
 .passwordRow input{
-    flex:1;
+
+margin-bottom:0;
+
 }
 
 .passwordRow button{
 
-    width:60px;
+width:60px;
 
-    border:none;
+border:none;
 
-    background:#30384d;
+border-radius:12px;
 
-    color:white;
+background:var(--card2);
 
-    border-radius:10px;
+color:white;
 
-    cursor:pointer;
+}
+
+#confirmContainer{
+
+display:none;
 
 }
 
 .options{
 
-    display:flex;
+display:flex;
 
-    justify-content:space-between;
+justify-content:space-between;
 
-    margin-bottom:20px;
+align-items:center;
 
-    font-size:14px;
+margin:18px 0;
+
+font-size:14px;
 
 }
 
 .options a{
-    color:#6ab7ff;
+
+color:var(--accent2);
+
+text-decoration:none;
+
 }
 
 .mainButton{
 
-    width:100%;
+width:100%;
 
-    padding:15px;
+padding:15px;
 
-    border:none;
+border:none;
 
-    border-radius:10px;
+border-radius:12px;
 
-    background:#3b82f6;
+background:var(--accent);
 
-    color:white;
+color:white;
 
-    cursor:pointer;
+font-size:16px;
 
-    font-size:16px;
+font-weight:bold;
 
 }
 
 .mainButton:hover{
 
-    background:#2563eb;
+box-shadow:var(--shadow);
 
 }
 
 .message{
 
-    margin-top:20px;
+margin-top:20px;
 
-    text-align:center;
-
-    color:#7ce38b;
+text-align:center;
 
 }
 
 .error{
 
-    color:#ff8080;
+color:#ff8f8f;
 
 }
+
+.success{
+
+color:#7ce38b;
+
+}
+
+@media(max-width:600px){
+
+.loginCard{
+
+padding:25px;
+
+}
+
+.logo{
+
+font-size:30px;
+
+}
+
+}
+
 </style>
 
 </head>
 <body>
 
-<div class="card">
+<div class="loginCard">
 
-<h1>Nebula</h1>
+<div class="logo">
+
+NebulaTen
+
+</div>
 
 <div class="subtitle">
 
@@ -198,11 +266,15 @@ Sign in or create your account
 <div class="tabs">
 
 <button id="loginTab" class="active">
+
 Login
+
 </button>
 
 <button id="signupTab">
+
 Sign Up
+
 </button>
 
 </div>
@@ -219,13 +291,17 @@ id="password"
 type="password"
 placeholder="Password">
 
-<button id="togglePassword">
+<button
+type="button"
+id="togglePassword">
+
 👁
+
 </button>
 
 </div>
 
-<div id="confirmContainer" style="display:none;">
+<div id="confirmContainer">
 
 <input
 id="confirmPassword"
@@ -243,21 +319,23 @@ type="checkbox"
 id="remember"
 checked>
 
-Remember this device
+ Remember this device
 
 </label>
 
-<a href="#" id="forgotPassword">
+<a
+href="#"
+id="forgotPassword">
 
-Forgot?
+Forgot Password?
 
 </a>
 
 </div>
 
 <button
-class="mainButton"
-id="submitButton">
+id="submitButton"
+class="mainButton">
 
 Login
 
@@ -273,37 +351,6 @@ class="message">
 
 <script>
 
-let signup=false;
-
-const loginTab=document.getElementById("loginTab");
-const signupTab=document.getElementById("signupTab");
-
-loginTab.onclick=()=>{
-
-signup=false;
-
-loginTab.classList.add("active");
-signupTab.classList.remove("active");
-
-confirmContainer.style.display="none";
-
-submitButton.textContent="Login";
-
-}
-
-signupTab.onclick=()=>{
-
-signup=true;
-
-signupTab.classList.add("active");
-loginTab.classList.remove("active");
-
-confirmContainer.style.display="block";
-
-submitButton.textContent="Create Account";
-
-}
-
 togglePassword.onclick=()=>{
 
 password.type=
@@ -313,67 +360,21 @@ password.type==="password"
 :
 "password";
 
-}
+};
 
-submitButton.onclick=()=>{
+forgotPassword.onclick=(e)=>{
 
-message.classList.remove("error");
+e.preventDefault();
 
-const email=email.value.trim();
+alert(
+"Forgot Password will be connected in a later part."
+);
 
-const pass=password.value;
-
-if(email===""){
-
-message.textContent="Enter your email.";
-
-message.classList.add("error");
-
-return;
-
-}
-
-if(pass.length<6){
-
-message.textContent="Password must be at least 6 characters.";
-
-message.classList.add("error");
-
-return;
-
-}
-
-if(signup){
-
-if(pass!==confirmPassword.value){
-
-message.textContent="Passwords do not match.";
-
-message.classList.add("error");
-
-return;
-
-}
-
-message.textContent=
-"Ready to create your account.";
-
-}else{
-
-message.textContent=
-"Ready to log you in.";
-
-}
-
-}
-
-forgotPassword.onclick=()=>{
-
-alert("Password reset will be added in Part 3.");
-
-}
+};
 
 </script>
+
+<script type="module" src="js/auth.js"></script>
 
 </body>
 </html>
