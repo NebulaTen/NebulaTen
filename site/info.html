@@ -1,53 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TNLX2948CG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TNLX2948CG');
+</script>
+<!-- Google tag (gtag.js) -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NebulaTen</title>
+<link rel="icon" href="icon.png" type="image/x-icon">
+<script src="https://kit.fontawesome.com/b44b8a57e7.js" crossorigin="anonymous"></script>
+
 <style>
-    .bio-container {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #1e1e2f, #2a2a3d);
-      color: #ffffff;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      max-width: 400px;
-      margin: auto;
-      text-align: center;
-      animation: fadeIn 1.2s ease-in-out;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
-    .bio-title {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
+  * {
+    box-sizing: border-box;
+  }
 
-    .bio-item {
-      margin: 10px 0;
-    }
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #2e003e, #000);
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
 
-    .bio-link {
-      color: #61dafb;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease, transform 0.3s ease;
-      display: inline-block;
-    }
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* visible now */
+  }
 
-    .bio-link:hover {
-      color: #00e6e6;
-      transform: scale(1.05);
-    }
+  .banner {
+    width: 100%;
+    height: 300px;
+    background-image: url("https://yt3.googleusercontent.com/Y0q_0B3wtspINJiOTTrA4JUAZ80HZmupzIMbGpUPF78lbQ3RrmfAPIGOzWjJ8JiG37oWAuneYg=w1060-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 40px #a020f0;
+    border-bottom: 3px solid #8a2be2;
+    position: relative;
+    z-index: 1;
+  }
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-  </style>
+  .profile {
+    text-align: center;
+    margin-top: -80px;
+    position: relative;
+    z-index: 1;
+  }
 
+  .profile img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 4px solid #8a2be2;
+    box-shadow: 0 0 25px #a020f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
 
-  <div class="bio-container">
-    <div class="bio-title">Ten_2357</div>
-    <div class="bio-item">
-      <a class="bio-link" href="https://discord.com/users/1339483368169148498" target="_blank">Discord: ten_2357</a>
-    </div>
-    <div class="bio-item">
-      <a class="bio-link" href="https://quiq.vercel.app" target="_blank">Extra: Quiq</a>
-    </div>
-  </div>
+  .profile img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 40px #bf40bf;
+  }
+
+  .name {
+    margin-top: 15px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-shadow: 0 0 10px #b84bff, 0 0 20px #9b30ff;
+  }
+
+  .links {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .link {
+    padding: 12px 25px;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #4b0082, #9b30ff);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.1);
+    transform: skewX(-45deg);
+    transition: left 0.3s ease;
+  }
+
+  .link:hover::after {
+    left: 200%;
+  }
+
+  .link:hover {
+    box-shadow: 0 0 20px #b84bff;
+    transform: scale(1.05);
+  }
+
+  .twitch-section {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+  }
+
+  #twitch-embed {
+    position: relative;
+    width: 80%;
+    padding-top: 45%;
+    border: 2px solid #9b30ff;
+    border-radius: 15px;
+    box-shadow: 0 0 40px #a020f0;
+    overflow: hidden;
+  }
+
+  #twitch-embed iframe {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  footer {
+    margin-top: 60px;
+    text-align: center;
+    color: gray;
+    font-size: 0.9rem;
+    padding-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+</style>
+</head>
+<body>
+
+<!-- Particles background -->
+<div id="particles-js"></div>
+
+<!-- Banner -->
+<div class="banner"></div>
+
+<!-- Profile section -->
+<div class="profile">
+  <img src="https://yt3.googleusercontent.com/RCy-uFzuQKOqwdtM8fWXhwRthXlVJO-Qd9eBmPdlWzYfiy7DkHWkfqlSGODViLPFIIEAeg09=s160-c-k-c0x00ffffff-no-rj" alt="NebulaTen's pfp">
+  <div class="name">NebulaTen</div>
+</div>
+
+<!-- Links -->
+<div class="links">
+  <a href="https://www.youtube.com/@Voidternity" target="_blank" class="link"><i class="fa-brands fa-youtube"></i> YouTube</a>
+  <a href="https://twitch.tv/voidternity" target="_blank" class="link"><i class="fa-brands fa-twitch"></i> Twitch</a>
+  <a href="https://discord.gg/VXbneskVUv" target="_blank" class="link"><i class="fa-brands fa-discord"></i> Discord</a>
+  <a href="https://www.tiktok.com/@Voidternity" target="_blank" class="link"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+  <a href="https://streamlabs.com/voidternity/tip" target="_blank" class="link"><i class="fa-solid fa-money-bills"></i> Tip</a>
+</div>
+
+<!-- Twitch Embed -->
+<div class="twitch-section">
+  <h2 style="margin-bottom: 10px; text-shadow: 0 0 20px #a020f0;">Live on Twitch</h2>
+  <div id="twitch-embed"></div>
+</div>
+
+<!-- Footer -->
+<footer>With Permisson From BlueCube • HTML-JS:Five2357</footer>
+
+<!-- Twitch Script -->
+<script src="https://player.twitch.tv/js/embed/v1.js"></script>
+<script>
+  new Twitch.Player("twitch-embed", { channel: "voidternity" });
+</script>
+
+<!-- Particles.js Script -->
+<script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 80 },
+      "color": { "value": "#a020f0" },
+      "shape": { "type": "triangle" },
+      "opacity": { "value": 0.5 },
+      "size": { "value": 5 },
+      "line_linked": { "enable": true, "distance": 150, "color": "#8a2be2", "opacity": 0.4, "width": 1 },
+      "move": { "enable": true, "speed": 2 }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": { "enable": true, "mode": "grab" },
+        "onclick": { "enable": true, "mode": "push" }
+      }
+    },
+    "retina_detect": true
+  });
+});
+</script>
+
+</body>
+</html>
