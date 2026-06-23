@@ -117,34 +117,6 @@
     transform: scale(1.05);
   }
 
-  .twitch-section {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    z-index: 3;
-  }
-
-  #twitch-embed {
-    position: relative;
-    width: 80%;
-    padding-top: 45%;
-    border: 2px solid #9b30ff;
-    border-radius: 15px;
-    box-shadow: 0 0 40px #a020f0;
-    overflow: hidden;
-  }
-
-  #twitch-embed iframe {
-    position: absolute !important;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-  }
-
   footer {
     margin-top: 60px;
     text-align: center;
@@ -176,20 +148,8 @@
   <a href="https://nebula10.netlify.app/" target="_blank" class="link"><i class="fa-solid fa-globe"></i> Website</a>
 </div>
 
-<!-- Twitch Embed -->
-<div class="twitch-section">
-  <h2 style="margin-bottom: 10px; text-shadow: 0 0 20px #a020f0;">Live on Twitch</h2>
-  <div id="twitch-embed"></div>
-</div>
-
 <!-- Footer -->
 <footer>With Permisson From BlueCube • HTML-JS:Five2357</footer>
-
-<!-- Twitch Script -->
-<script src="https://player.twitch.tv/js/embed/v1.js"></script>
-<script>
-  new Twitch.Player("twitch-embed", { channel: "voidternity" });
-</script>
 
 <!-- Particles.js Script -->
 <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js"></script>
