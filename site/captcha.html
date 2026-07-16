@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verification Required</title>
+
+    <style>
+        body {
+            margin:0;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:#120827;
+            color:white;
+            font-family:Arial;
+        }
+
+        .box {
+            background:#24104f;
+            padding:40px;
+            border-radius:20px;
+            text-align:center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>
+        Verify you are human
+    </h2>
+
+    <div id="captcha"></div>
+
+    <p id="status">
+        Waiting...
+    </p>
+
+</div>
+
+
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
+<script>
+
+const SITEKEY =
+"901a2c36-f0ea-48da-8ca6-e00a86f40046";
+
+
+function verify(token) {
+
+    fetch(
+        "/.netlify/functions/verify",
+        {
+            method:"POST",
+            credentials:"include",
+
+            headers:{
+                "Content-Type":
+                "application/json"
+            },
+
+            body:JSON.stringify({
+                token
+            })
+        }
+    )
+    .then(r => r.json())
+    .then(data => {
+
+        if(data.success){
+
+            const params =
+            new URLSearchParams(
+                location.search
+            );
+
+            location.href =
+            params.get("return") || "/";
+
+        }
+        else {
+
+            document.getElementById(
+                "status"
+            ).textContent =
+            "Failed. Try again.";
+
+        }
+
+    });
+
+}
+
+
+
+function loadCaptcha(){
+
+    hcaptcha.render(
+        "captcha",
+        {
+            sitekey:SITEKEY,
+            callback:verify
+        }
+    );
+
+}
+
+
+const wait=setInterval(()=>{
+
+    if(window.hcaptcha){
+
+        clearInterval(wait);
+        loadCaptcha();
+
+    }
+
+},100);
+
+
+</script>
+
+</body>
+</html>
